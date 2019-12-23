@@ -1,12 +1,12 @@
 <template>
-  	<div class="container-fluid">
-    	<div class="row">
-      		<div class="col-md-5">
-        		<ul class="nav nav-tabs" id="myTab" role="tablist">
-          			<li class="nav-item">
-            			<a class="nav-link active" id="new-wo-tab" data-toggle="tab" href="#new-wo" role="tab" aria-controls="new-wo" aria-selected="true">New WO.</a>
-          			</li>
-        		</ul>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-5">
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="new-wo-tab" data-toggle="tab" href="#new-wo" role="tab" aria-controls="new-wo" aria-selected="true">New WO.</a>
+					</li>
+				</ul>
 				<div class="tab-content py-2" id="firstTabContent">
 					<div class="tab-pane fade show active" id="new-wo" role="tabpanel" aria-labelledby="home-tab">
 						<div class="row">
@@ -357,8 +357,8 @@
 					</div>
 				</div>
 			</div>
-    	</div>
-  	</div>
+		</div>
+	</div>
 </template>
 <script>
 export default {
@@ -520,25 +520,25 @@ export default {
 		}
 		.right-button {
 			background: #eee;
-	    	position: relative;
-  	  		border-radius: 25px;
-    		height: 50px;
+			position: relative;
+			border-radius: 25px;
+			height: 50px;
 			padding: 10px;
 			margin: 5px;
 
 			.top-string {
 				line-height: 1rem;
-    			text-decoration: underline;
-    			font-weight: bold;
+				text-decoration: underline;
+				font-weight: bold;
 			}
 			.down-string {
 				line-height: 1rem;
 			}
 			.number-string {
 				position: absolute;
-    			right: 10px;
-    			margin-top: -35px;
-		    	color: yellow;
+				right: 10px;
+				margin-top: -35px;
+				color: yellow;
 			}
 			&.btn-white {
 				background: white;
@@ -551,7 +551,7 @@ export default {
 			}
 			&.not-working {
 				line-height: 2rem;
-    		font-size: 1.25rem;
+				font-size: 1.25rem;
 			}
 			.left-icon {
 				position: absolute;
