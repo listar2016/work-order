@@ -1,50 +1,50 @@
 <template>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-5">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="new-wo-tab" data-toggle="tab" href="#new-wo" role="tab" aria-controls="new-wo" aria-selected="true">New WO.</a>
-          </li>
-        </ul>
-        <div class="tab-content py-2" id="firstTabContent">
-          <div class="tab-pane fade show active" id="new-wo" role="tabpanel" aria-labelledby="home-tab">
-            <div class="row">
-            	<div class="form-group col-sm-6">
-								<label>Company</label>
-                <select 
-									class="form-control parameters-input"
-									v-model="new_wo.company">
-										<option v-for="(company, index) in companyList" :value="company" :key="index">{{ company }}</option>
-								</select>
-            	</div>
-							<div class="form-group col-sm-6">
-                <label>Pilicy</label>
-                <input v-model="new_wo.policy" class="form-control" />
-            	</div>
-            </div>
+  	<div class="container-fluid">
+    	<div class="row">
+      		<div class="col-md-5">
+        		<ul class="nav nav-tabs" id="myTab" role="tablist">
+          			<li class="nav-item">
+            			<a class="nav-link active" id="new-wo-tab" data-toggle="tab" href="#new-wo" role="tab" aria-controls="new-wo" aria-selected="true">New WO.</a>
+          			</li>
+        		</ul>
+				<div class="tab-content py-2" id="firstTabContent">
+					<div class="tab-pane fade show active" id="new-wo" role="tabpanel" aria-labelledby="home-tab">
 						<div class="row">
 							<div class="form-group col-sm-6">
-                <label>Customer</label>
-                <input v-model="new_wo.customer" class="form-control" />
-            	</div>
+								<label>Company</label>
+								<select 
+									class="form-control parameters-input"
+									v-model="new_wo.company">
+									<option v-for="(company, index) in companyList" :value="company" :key="index">{{ company }}</option>
+								</select>
+							</div>
 							<div class="form-group col-sm-6">
-                <label>Contract</label>
-                <input v-model="new_wo.contract" class="form-control" />
-            	</div>
+								<label>Pilicy</label>
+								<input v-model="new_wo.policy" class="form-control" />
+							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-sm-6">
-                <label>Address note</label>
-                <input v-model="new_wo.address_note" class="form-control" />
-            	</div>
+								<label>Customer</label>
+								<input v-model="new_wo.customer" class="form-control" />
+							</div>
 							<div class="form-group col-sm-6">
-                <label>S/Fee</label>
+								<label>Contract</label>
+								<input v-model="new_wo.contract" class="form-control" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-sm-6">
+								<label>Address note</label>
+								<input v-model="new_wo.address_note" class="form-control" />
+							</div>
+							<div class="form-group col-sm-6">
+								<label>S/Fee</label>
 								<div>
-                	<span class="span-s-fee">{{ new_wo.s_fee }}</span>
+									<span class="span-s-fee">{{ new_wo.s_fee }}</span>
 									<button class="float-right"><i class="fa fa-save"></i></button>
 								</div>
-            	</div>
+							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-sm-2">
@@ -75,7 +75,6 @@
 								<label>Apt</label>
 								<input v-model="new_wo.apt" class="form-control" />
 							</div>
-							
 							<div class="form-group col-sm-4">
 								<label>Zip/City</label>
 								<input v-model="new_wo.zip_city" class="form-control" />
@@ -101,13 +100,13 @@
 								</div>
 							</div>
 						</div>
-          </div>
-        </div>
+					</div>
+				</div>
 				<ul class="nav nav-tabs" id="myTab-2" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="air-condition-tab" data-toggle="tab" href="#air-condition" role="tab" aria-controls="air-condition" aria-selected="true">Air Conditioner</a>
-          </li>
-        </ul>
+					<li class="nav-item">
+						<a class="nav-link active" id="air-condition-tab" data-toggle="tab" href="#air-condition" role="tab" aria-controls="air-condition" aria-selected="true">Air Conditioner</a>
+					</li>
+				</ul>
 				<div class="tab-content py-2" id="secondTabContent">
 					<div class="tab-pane fade show active" id="air-condition" role="tabpanel" aria-labelledby="air-condition-tab">
 						<div class="row">
@@ -156,25 +155,25 @@
 						</div>
 						<div class="row">
 							<div class="form-group col-sm-6">
-                <label>Reason</label>
-                <select 
-										class="form-control parameters-input"
-										v-model="air_condition.reason">
-											<option v-for="(reason, index) in reasonList" :value="reason" :key="index">{{ reason }}</option>
-									</select>
-            	</div>
+								<label>Reason</label>
+								<select 
+									class="form-control parameters-input"
+									v-model="air_condition.reason">
+										<option v-for="(reason, index) in reasonList" :value="reason" :key="index">{{ reason }}</option>
+								</select>
+							</div>
 							<div class="form-group col-sm-6">
 								<label>Note</label>
 								<input v-model="air_condition.note" class="form-control"/>
 							</div>
 							<div class="form-group col-sm-6">
-                <label>Dealer</label>
-                <select 
-										class="form-control parameters-input"
-										v-model="air_condition.dealer">
-											<option v-for="(dealer, index) in dealerList" :value="dealer" :key="index">{{ dealer }}</option>
-									</select>
-            	</div>
+								<label>Dealer</label>
+								<select 
+									class="form-control parameters-input"
+									v-model="air_condition.dealer">
+										<option v-for="(dealer, index) in dealerList" :value="dealer" :key="index">{{ dealer }}</option>
+								</select>
+							</div>
 							<div class="form-group col-sm-6">
 								<div class="row select-span">
 									<span class="col">Inst</span>
@@ -198,10 +197,10 @@
 					</div>
 				</div>
 				<ul class="nav nav-tabs" id="myTab-3" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="notes-tab" data-toggle="tab" href="#notes" role="tab" aria-controls="notes" aria-selected="true">Notes</a>
-          </li>
-        </ul>
+					<li class="nav-item">
+						<a class="nav-link active" id="notes-tab" data-toggle="tab" href="#notes" role="tab" aria-controls="notes" aria-selected="true">Notes</a>
+					</li>
+				</ul>
 				<div class="tab-content py-2" id="thirdTabContent">
 					<div class="tab-pane fade show active" id="notes" role="tabpanel" aria-labelledby="notes-tab">
 						<div class="row">
@@ -212,7 +211,7 @@
 						</div>
 					</div>
 				</div>
-      </div>
+			</div>
 			<div class="col-md-7">
 				<div class="row mx-0">
 					<div class="calendar-main-status border-bottom border-dark">
@@ -255,7 +254,7 @@
 								</div>
 							</div>
 							<div class="col-8">
- 							</div>
+							</div>
 						</div>
 						<div class="row border-bottom">
 							<div class="col-12">
@@ -315,7 +314,7 @@
 									<div class="top-string">91364 Woodland Hills</div>
 									<div class="down-string">Refrigerator</div>
 								</div>
- 							</div>
+							</div>
 						</div>
 						
 					</div>
@@ -353,17 +352,17 @@
 									<div class="top-string">91335 Reseda</div>
 									<div class="down-string">Refrigerator</div>
 								</div>
- 							</div>
+							</div>
 						</div>
 					</div>
 				</div>
-      </div>
-    </div>
-  </div>
+			</div>
+    	</div>
+  	</div>
 </template>
 <script>
 export default {
-  data() {
+	data() {
 		return {
 			new_wo: {
 				company: '',
@@ -464,8 +463,8 @@ export default {
 <style lang="scss" scoped>
 	.span-s-fee {
 		background: #f66d9b;
-    padding: 5px 20px;
-    line-height: 2.5rem;
+		padding: 5px 20px;
+		line-height: 2.5rem;
 	}
 	.icon-span { 
 		width: 60px;
@@ -521,24 +520,25 @@ export default {
 		}
 		.right-button {
 			background: #eee;
-	    position: relative;
-  	  border-radius: 25px;
-    	height: 50px;
+	    	position: relative;
+  	  		border-radius: 25px;
+    		height: 50px;
 			padding: 10px;
 			margin: 5px;
+
 			.top-string {
 				line-height: 1rem;
-    		text-decoration: underline;
-    		font-weight: bold;
+    			text-decoration: underline;
+    			font-weight: bold;
 			}
 			.down-string {
 				line-height: 1rem;
 			}
 			.number-string {
 				position: absolute;
-    		right: 10px;
-    		margin-top: -35px;
-		    color: yellow;
+    			right: 10px;
+    			margin-top: -35px;
+		    	color: yellow;
 			}
 			&.btn-white {
 				background: white;
@@ -555,8 +555,8 @@ export default {
 			}
 			.left-icon {
 				position: absolute;
-    		margin-left: 10px;
-    		font-size: 1.5rem;
+				margin-left: 10px;
+				font-size: 1.5rem;
 			}
 		}
 	}
