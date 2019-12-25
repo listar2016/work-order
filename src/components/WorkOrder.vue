@@ -81,7 +81,7 @@
 									<input v-model="new_wo.zip_city" class="form-control" />
 								</div>
 							</div>
-							<div class="row mx-1 py-3 bg-white">
+							<div class="row mx-1 py-2 bg-white">
 								<div class="icon-span">
 									<span class="form-control mb-1"><i class="fa fa-phone-square"></i></span>
 									<span class="form-control mb-1"><i class="fa fa-phone-volume"></i></span>
@@ -470,7 +470,7 @@ export default {
 	.work-order	{
 		background: #fff;
 	}
-	#myTab, #myTab-3 {
+	#myTab, #myTab-2, #myTab-3 {
 		.nav-link {
 			&.active {
 				background-color: #eee;
@@ -490,6 +490,7 @@ export default {
 		border-radius: 0.25rem;
 		padding: 15px;
 		border-top: 0;
+		background-color: #eee;
 	}
 	#thirdTabContent {
 		border: 1px solid #dee2e6;
@@ -544,7 +545,7 @@ export default {
 			line-height: 2rem;
 			.status-bar {
 				width: 100px;
-				height: 30px;
+				height: 25px;
 				float: left;
 				&.active {
 					background-image: linear-gradient( #38c172,white, #38c172);
@@ -606,5 +607,18 @@ export default {
 				color: #686868;
 			}
 		}
+	}
+	form {
+		.form-control {
+			line-height: 2rem;
+			height: 2rem;
+		}
+		.form-group {
+			margin-bottom: 0.25rem;
+			label {
+				margin-bottom: 0;
+			}
+		}
+		
 	}
 </style>
