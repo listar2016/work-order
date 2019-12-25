@@ -3,12 +3,16 @@
 		<div class="row">
 			<div class="col-md-5">
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
-					<li class="nav-item">
-						<a class="nav-link active" id="new-wo-tab" data-toggle="tab" href="#" role="tab" aria-controls="new-wo" aria-selected="true">New WO.</a>
+					<li class="nav-item" v-for="(one_wo, wo_index) in wo_data" :key="wo_index">
+						<a class="nav-link" :class="curWoIndex == wo_index ? 'active' : ''" data-toggle="tab" role="tab" @click="curWoIndex = wo_index">
+							New WO.
+							<a v-if="wo_index==wo_data.length-1" @click="addNewTab" class="fa fa-plus"></a>
+							<a v-else @click="delCurTab(wo_index)" class="fa fa-trash"></a>
+						</a>
 					</li>
 				</ul>
 				<div class="tab-content py-2" id="firstTabContent">
-					<div class="tab-pane fade show active" id="new-wo" role="tabpanel" aria-labelledby="new-wo-tab">
+					<div class="tab-pane fade" v-for="(new_wo, wo_index) in wo_data" :key="wo_index" :class="curWoIndex == wo_index ? 'show active' : ''">
 						<form>
 							<div class="row">
 								<div class="form-group col-sm-6">
@@ -105,12 +109,16 @@
 					</div>
 				</div>
 				<ul class="nav nav-tabs mt-3" id="myTab-2" role="tablist">
-					<li class="nav-item">
-						<a class="nav-link active" id="air-condition-tab" data-toggle="tab" href="#" role="tab" aria-controls="air-condition" aria-selected="true">Air Conditioner</a>
+					<li class="nav-item" v-for="(one_air, air_index) in air_data" :key="air_index">
+						<a class="nav-link" :class="curAirIndex == air_index ? 'active' : ''" data-toggle="tab" role="tab" @click="curAirIndex = air_index">
+							Air Conditioner
+							<a v-if="air_index==air_data.length-1" @click="addNewAirTab" class="fa fa-plus"></a>
+							<a v-else @click="delCurAirTab(air_index)" class="fa fa-trash"></a>
+						</a>
 					</li>
 				</ul>
 				<div class="tab-content py-2" id="secondTabContent">
-					<div class="tab-pane fade show active" id="air-condition" role="tabpanel" aria-labelledby="air-condition-tab">
+					<div class="tab-pane fade" v-for="(air_condition, air_index) in air_data" :key="air_index" :class="curAirIndex == air_index ? 'show active' : ''">
 						<form>
 							<div class="row">
 								<div class="col-sm-6">
@@ -138,7 +146,7 @@
 								<div class="col-sm-6">
 									<div class="form-group row mx-0">
 										<label class="col-sm-4 text-right mt-2">Purchased</label>
-										<div class="col-sm-8">
+										<div class="col-sm-8 px-0">
 											<input type="date" v-model="air_condition.purchased" class="form-control"/>
 										</div>
 									</div>
@@ -370,7 +378,7 @@
 export default {
 	data() {
 		return {
-			new_wo: {
+			empty_wo: {
 				company: '',
 				policy: '',
 				customer: '',
@@ -391,6 +399,27 @@ export default {
 					}
 				]
 			},
+			wo_data:[{
+				company: '',
+				policy: '',
+				customer: '',
+				contract: '',
+				address_note: '',
+				s_fee: '$0.00',
+				bldg: '',
+				dir: '',
+				street: '',
+				type: '',
+				apt: '',
+				zip_city: '',
+				phone_info:[
+					{
+						value: '',
+						desc:'',
+						type: ''
+					}
+				]
+			}],
 			companyList: [
 				'company1',
 				'company2'
@@ -407,7 +436,7 @@ export default {
 				'Home',
 				'Office'
 			],
-			air_condition: {
+			empty_air: {
 				appliance: '',
 				brand: '',
 				model: '',
@@ -423,6 +452,22 @@ export default {
 					{ value: '' }
 				]
 			},
+			air_data: [{
+				appliance: '',
+				brand: '',
+				model: '',
+				serial: '',
+				purchased: '',
+				location: '',
+				power: '',
+				style: '',
+				reason: '',
+				note: '',
+				dealer: '',
+				problems: [
+					{ value: '' }
+				]
+			}],
 			applianceList: [
 				'appliance1',
 				'appliance2'
@@ -442,19 +487,21 @@ export default {
 			],
 			dataList: [
 				
-			]
+			],
+			curWoIndex: 0,
+			curAirIndex: 0
 		}
 	},
 	methods: {
 		addNewPhone() {
-			this.new_wo.phone_info.push({
+			this.wo_data[this.curWoIndex].phone_info.push({
 				value: '',
 				desc:'',
 				type: ''
 			})
 		},
 		addNewProblem() {
-			this.air_condition.problems.push({
+			this.air_data[this.curAirIndex].problems.push({
 				value: ''
 			})
 		},
@@ -463,6 +510,28 @@ export default {
 				value: ''
 			})
 		},
+		addNewTab() {
+			this.wo_data.push({...this.empty_wo})
+			this.curWoIndex = this.wo_data.length-1
+		},
+		delCurTab(index) {
+			if (index>0) {
+				this.wo_data.splice(index,1)
+			} else {
+				this.wo_data = {...this.empty_wo}
+			}
+		},
+		addNewAirTab() {
+			this.air_data.push({...this.empty_air})
+			this.curAirIndex = this.air_data.length-1
+		},
+		delCurAirTab(index) {
+			if (index>0) {
+				this.air_data.splice(index,1)
+			} else {
+				this.air_data = {...this.empty_air}
+			}
+		}
 	},
 }
 </script>
@@ -476,6 +545,7 @@ export default {
 				background-color: #eee;
 				border-color: #eee;
 			}
+			cursor: pointer;
 		}
 	}
 	#firstTabContent {
