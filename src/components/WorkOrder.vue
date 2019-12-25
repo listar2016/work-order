@@ -1,214 +1,220 @@
 <template>
-	<div class="container-fluid">
+	<div class="container-fluid work-order">
 		<div class="row">
 			<div class="col-md-5">
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item">
-						<a class="nav-link active" id="new-wo-tab" data-toggle="tab" href="#new-wo" role="tab" aria-controls="new-wo" aria-selected="true">New WO.</a>
+						<a class="nav-link active" id="new-wo-tab" data-toggle="tab" href="#" role="tab" aria-controls="new-wo" aria-selected="true">New WO.</a>
 					</li>
 				</ul>
 				<div class="tab-content py-2" id="firstTabContent">
-					<div class="tab-pane fade show active" id="new-wo" role="tabpanel" aria-labelledby="home-tab">
-						<div class="row">
-							<div class="form-group col-sm-6">
-								<label>Company</label>
-								<select 
-									class="form-control parameters-input"
-									v-model="new_wo.company">
-									<option v-for="(company, index) in companyList" :value="company" :key="index">{{ company }}</option>
-								</select>
-							</div>
-							<div class="form-group col-sm-6">
-								<label>Pilicy</label>
-								<input v-model="new_wo.policy" class="form-control" />
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-sm-6">
-								<label>Customer</label>
-								<input v-model="new_wo.customer" class="form-control" />
-							</div>
-							<div class="form-group col-sm-6">
-								<label>Contract</label>
-								<input v-model="new_wo.contract" class="form-control" />
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-sm-6">
-								<label>Address note</label>
-								<input v-model="new_wo.address_note" class="form-control" />
-							</div>
-							<div class="form-group col-sm-6">
-								<label>S/Fee</label>
-								<div>
-									<span class="span-s-fee">{{ new_wo.s_fee }}</span>
-									<button class="float-right"><i class="fa fa-save"></i></button>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-sm-2">
-								<label>Bldg</label>
-								<input v-model="new_wo.bldg" class="form-control" />
-							</div>
-							<div class="form-group col-sm-2">
-								<label>Dir</label>
-								<select 
-									class="form-control parameters-input"
-									v-model="new_wo.dir">
-										<option v-for="(dir, index) in dirList" :value="dir" :key="index">{{ dir }}</option>
-								</select>
-							</div>
-							<div class="form-group col-sm-4">
-								<label>Street</label>
-								<input v-model="new_wo.street" class="form-control" />
-							</div>
-							<div class="form-group col-sm-2">
-								<label>Type</label>
-								<select 
-									class="form-control parameters-input"
-									v-model="new_wo.type">
-										<option v-for="(type, index) in typeList" :value="type" :key="index">{{ type }}</option>
-								</select>
-							</div>
-							<div class="form-group col-sm-2">
-								<label>Apt</label>
-								<input v-model="new_wo.apt" class="form-control" />
-							</div>
-							<div class="form-group col-sm-4">
-								<label>Zip/City</label>
-								<input v-model="new_wo.zip_city" class="form-control" />
-							</div>
-						</div>
-						<div class="row">
-							<div class="icon-span">
-								<span class="form-control mb-1"><i class="fa fa-phone-square"></i></span>
-								<span class="form-control mb-1"><i class="fa fa-phone-volume"></i></span>
-								<span class="form-control mb-1"><i class="fab fa-algolia"></i></span>
-								<span class="form-control mb-1"><i class="fa fa-envelope"></i></span>
-							</div>
-							<div class="right-add">
-								<div class="form-inline mb-1" v-for="(item, index) in new_wo.phone_info" :key="index">
-									<a v-if="index == new_wo.phone_info.length-1" class="mx-2" @click="addNewPhone()"><i class="fa fa-plus"></i></a>
-									<input v-model="item.value" class="form-control mx-2"/>
-									<input v-model="item.desc" class="form-control mx-2"/>
+					<div class="tab-pane fade show active" id="new-wo" role="tabpanel" aria-labelledby="new-wo-tab">
+						<form>
+							<div class="row">
+								<div class="form-group col-sm-6">
+									<label>Company</label>
 									<select 
-										class="form-control parameters-input mx-2"
-										v-model="item.type">
-											<option v-for="(phone_type, index) in phoneTypeList" :value="phone_type" :key="index">{{ phone_type }}</option>
+										class="form-control parameters-input"
+										v-model="new_wo.company">
+										<option v-for="(company, index) in companyList" :value="company" :key="index">{{ company }}</option>
 									</select>
 								</div>
+								<div class="form-group col-sm-6">
+									<label>Pilicy</label>
+									<input v-model="new_wo.policy" class="form-control" />
+								</div>
 							</div>
-						</div>
+							<div class="row">
+								<div class="form-group col-sm-6">
+									<label>Customer</label>
+									<input v-model="new_wo.customer" class="form-control" />
+								</div>
+								<div class="form-group col-sm-6">
+									<label>Contract</label>
+									<input v-model="new_wo.contract" class="form-control" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-sm-6">
+									<label>Address note</label>
+									<input v-model="new_wo.address_note" class="form-control" />
+								</div>
+								<div class="form-group col-sm-6">
+									<label>S/Fee</label>
+									<div>
+										<span class="span-s-fee">{{ new_wo.s_fee }}</span>
+										<button class="float-right btn-save"><i class="fa fa-save"></i></button>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-sm-3">
+									<label>Bldg</label>
+									<input v-model="new_wo.bldg" class="form-control" />
+								</div>
+								<div class="form-group col-sm-3">
+									<label>Dir</label>
+									<select 
+										class="form-control parameters-input"
+										v-model="new_wo.dir">
+											<option v-for="(dir, index) in dirList" :value="dir" :key="index">{{ dir }}</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-6">
+									<label>Street</label>
+									<input v-model="new_wo.street" class="form-control" />
+								</div>
+								<div class="form-group col-sm-3">
+									<label>Type</label>
+									<select 
+										class="form-control parameters-input"
+										v-model="new_wo.type">
+											<option v-for="(type, index) in typeList" :value="type" :key="index">{{ type }}</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-3">
+									<label>Apt</label>
+									<input v-model="new_wo.apt" class="form-control" />
+								</div>
+								<div class="form-group col-sm-6">
+									<label>Zip/City</label>
+									<input v-model="new_wo.zip_city" class="form-control" />
+								</div>
+							</div>
+							<div class="row mx-1 py-3 bg-white">
+								<div class="icon-span">
+									<span class="form-control mb-1"><i class="fa fa-phone-square"></i></span>
+									<span class="form-control mb-1"><i class="fa fa-phone-volume"></i></span>
+									<span class="form-control mb-1"><i class="fab fa-algolia"></i></span>
+									<span class="form-control mb-1"><i class="fa fa-envelope"></i></span>
+								</div>
+								<div class="right-add">
+									<div class="form-inline mb-1" v-for="(item, index) in new_wo.phone_info" :key="index">
+										<a v-if="index == new_wo.phone_info.length-1" class="mx-2" @click="addNewPhone()"><i class="fa fa-plus"></i></a>
+										<input v-model="item.value" class="form-control mx-2"/>
+										<input v-model="item.desc" class="form-control mx-2"/>
+										<select 
+											class="form-control parameters-input mx-2"
+											v-model="item.type">
+												<option v-for="(phone_type, index) in phoneTypeList" :value="phone_type" :key="index">{{ phone_type }}</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
-				<ul class="nav nav-tabs" id="myTab-2" role="tablist">
+				<ul class="nav nav-tabs mt-3" id="myTab-2" role="tablist">
 					<li class="nav-item">
-						<a class="nav-link active" id="air-condition-tab" data-toggle="tab" href="#air-condition" role="tab" aria-controls="air-condition" aria-selected="true">Air Conditioner</a>
+						<a class="nav-link active" id="air-condition-tab" data-toggle="tab" href="#" role="tab" aria-controls="air-condition" aria-selected="true">Air Conditioner</a>
 					</li>
 				</ul>
 				<div class="tab-content py-2" id="secondTabContent">
 					<div class="tab-pane fade show active" id="air-condition" role="tabpanel" aria-labelledby="air-condition-tab">
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group row">
-									<label class="col-sm-4 text-right mt-2">Appliance</label>
+						<form>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group row mx-0">
+										<label class="col-sm-4 text-right mt-2">Appliance</label>
+										<select 
+											class="form-control parameters-input col-sm-8"
+											v-model="air_condition.appliance">
+												<option v-for="(appliance, index) in applianceList" :value="appliance" :key="index">{{ appliance }}</option>
+										</select>
+									</div>
+									<div class="form-group row mx-0">
+										<label class="col-sm-4 text-right mt-2">Brand</label>
+										<input v-model="air_condition.brand" class="form-control col-sm-8"/>
+									</div>
+									<div class="form-group row mx-0">
+										<label class="col-sm-4 text-right mt-2">Model</label>
+										<input v-model="air_condition.model" class="form-control col-sm-8"/>
+									</div>
+									<div class="form-group row mx-0">
+										<label class="col-sm-4 text-right mt-2">Serial</label>
+										<input v-model="air_condition.serial" class="form-control col-sm-8"/>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group row mx-0">
+										<label class="col-sm-4 text-right mt-2">Purchased</label>
+										<div class="col-sm-8">
+											<input type="date" v-model="air_condition.purchased" class="form-control"/>
+										</div>
+									</div>
+									<div class="form-group row mx-0">
+										<label class="col-sm-4 text-right mt-2">Location</label>
+										<input v-model="air_condition.location" class="form-control col-sm-8"/>
+									</div>
+									<div class="form-group row mx-0">
+										<label class="col-sm-4 text-right mt-2">Power</label>
+										<input v-model="air_condition.power" class="form-control col-sm-8"/>
+									</div>
+									<div class="form-group row mx-0">
+										<label class="col-sm-4 text-right mt-2">Style</label>
+										<input v-model="air_condition.style" class="form-control col-sm-8"/>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-sm-6">
+									<label>Reason</label>
 									<select 
-										class="form-control parameters-input col-sm-8"
-										v-model="air_condition.appliance">
-											<option v-for="(appliance, index) in applianceList" :value="appliance" :key="index">{{ appliance }}</option>
+										class="form-control parameters-input"
+										v-model="air_condition.reason">
+											<option v-for="(reason, index) in reasonList" :value="reason" :key="index">{{ reason }}</option>
 									</select>
 								</div>
-								<div class="form-group row">
-									<label class="col-sm-4 text-right mt-2">Brand</label>
-									<input v-model="air_condition.brand" class="form-control col-sm-8"/>
+								<div class="form-group col-sm-6">
+									<label>Note</label>
+									<input v-model="air_condition.note" class="form-control"/>
 								</div>
-								<div class="form-group row">
-									<label class="col-sm-4 text-right mt-2">Model</label>
-									<input v-model="air_condition.model" class="form-control col-sm-8"/>
+								<div class="form-group col-sm-6">
+									<label>Dealer</label>
+									<select 
+										class="form-control parameters-input"
+										v-model="air_condition.dealer">
+											<option v-for="(dealer, index) in dealerList" :value="dealer" :key="index">{{ dealer }}</option>
+									</select>
 								</div>
-								<div class="form-group row">
-									<label class="col-sm-4 text-right mt-2">Serial</label>
-									<input v-model="air_condition.serial" class="form-control col-sm-8"/>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="form-group row">
-									<label class="col-sm-4 text-right mt-2">Purchased</label>
-									<div class="col-sm-8">
-										<input type="date" v-model="air_condition.purchased" class="form-control"/>
-								</div>
-								</div>
-								<div class="form-group row">
-									<label class="col-sm-4 text-right mt-2">Location</label>
-									<input v-model="air_condition.location" class="form-control col-sm-8"/>
-								</div>
-								<div class="form-group row">
-									<label class="col-sm-4 text-right mt-2">Power</label>
-									<input v-model="air_condition.power" class="form-control col-sm-8"/>
-								</div>
-								<div class="form-group row">
-									<label class="col-sm-4 text-right mt-2">Style</label>
-									<input v-model="air_condition.style" class="form-control col-sm-8"/>
+								<div class="form-group col-sm-6">
+									<div class="row select-span">
+										<span class="col">Inst</span>
+										<span class="col">SS</span>
+										<span class="col">CB</span>
+										<span class="col">TN</span>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-sm-6">
-								<label>Reason</label>
-								<select 
-									class="form-control parameters-input"
-									v-model="air_condition.reason">
-										<option v-for="(reason, index) in reasonList" :value="reason" :key="index">{{ reason }}</option>
-								</select>
-							</div>
-							<div class="form-group col-sm-6">
-								<label>Note</label>
-								<input v-model="air_condition.note" class="form-control"/>
-							</div>
-							<div class="form-group col-sm-6">
-								<label>Dealer</label>
-								<select 
-									class="form-control parameters-input"
-									v-model="air_condition.dealer">
-										<option v-for="(dealer, index) in dealerList" :value="dealer" :key="index">{{ dealer }}</option>
-								</select>
-							</div>
-							<div class="form-group col-sm-6">
-								<div class="row select-span">
-									<span class="col">Inst</span>
-									<span class="col">SS</span>
-									<span class="col">CB</span>
-									<span class="col">TN</span>
+							<div class="row">
+								<div class="col-12">
+									<a @click="addNewProblem()" class="mx-2"><i class="fa fa-plus"></i></a>
+									<label>Problems</label>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-12">
-								<a @click="addNewProblem()" class="mx-2"><i class="fa fa-plus"></i></a>
-								<label>Problems</label>
+							<div class="row">
+								<div class="col-12 form-group" v-for="(problem, index) in air_condition.problems" :key="index">
+									<input v-model="problem.value" class="form-control" />
+								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-12 form-group" v-for="(problem, index) in air_condition.problems" :key="index">
-								<input v-model="problem.value" class="form-control" />
-							</div>
-						</div>
+						</form>
 					</div>
 				</div>
-				<ul class="nav nav-tabs" id="myTab-3" role="tablist">
+				<ul class="nav nav-tabs mt-3" id="myTab-3" role="tablist">
 					<li class="nav-item">
 						<a class="nav-link active" id="notes-tab" data-toggle="tab" href="#notes" role="tab" aria-controls="notes" aria-selected="true">Notes</a>
 					</li>
 				</ul>
 				<div class="tab-content py-2" id="thirdTabContent">
 					<div class="tab-pane fade show active" id="notes" role="tabpanel" aria-labelledby="notes-tab">
-						<div class="row">
-							<div class="col-12 form-group left-icon-with-input" v-for="(note, index) in notes" :key="index">
-								<a v-if="index == notes.length-1" @click="addNewNote()" class="mx-2"><i class="fa fa-plus"></i></a>
-								<input v-model="note.value" class="form-control" />
+						<form>
+							<div class="row">
+								<div class="col-12 form-group left-icon-with-input" v-for="(note, index) in notes" :key="index">
+									<a v-if="index == notes.length-1" @click="addNewNote()" class="mx-2"><i class="fa fa-plus"></i></a>
+									<input v-model="note.value" class="form-control" />
+								</div>
 							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -461,15 +467,53 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+	.work-order	{
+		background: #fff;
+	}
+	#myTab, #myTab-3 {
+		.nav-link {
+			&.active {
+				background-color: #eee;
+				border-color: #eee;
+			}
+		}
+	}
+	#firstTabContent {
+		border: 1px solid #dee2e6;
+		border-radius: 0.25rem;
+		padding: 15px;
+		border-top: 0;
+		background-color: #eee;
+	}
+	#secondTabContent {
+		border: 1px solid #dee2e6;
+		border-radius: 0.25rem;
+		padding: 15px;
+		border-top: 0;
+	}
+	#thirdTabContent {
+		border: 1px solid #dee2e6;
+		border-radius: 0.25rem;
+		padding: 15px;
+		border-top: 0;
+		background-color: #eee;
+	}
 	.span-s-fee {
 		background: #f66d9b;
 		padding: 5px 20px;
 		line-height: 2.5rem;
 	}
+	.btn-save {
+		font-size: 1.5rem;
+	}
 	.icon-span { 
 		width: 60px;
 		text-align: center;
 		margin-left: 15px;
+		i {
+			font-size: 1.5rem;
+			line-height: 1.5rem
+		}
 	}
 	.right-add {
 		margin-left: 15px;
@@ -512,18 +556,19 @@ export default {
 	}
 	.calendar-detail-status {
 		width: calc( 100% - 170px );
-    text-align: center;
+		text-align: center;
 		line-height: 2.5rem;
+		background-color: #eee;
 		.header-status {
 			background-color: #aaa;
 			border-right: 1px solid #eee;
 		}
 		.right-button {
-			background: #eee;
+			background: #ddd;
 			position: relative;
-			border-radius: 25px;
-			height: 50px;
-			padding: 10px;
+			border-radius: 20px;
+			height: 40px;
+			padding: 5px;
 			margin: 5px;
 
 			.top-string {
@@ -537,7 +582,7 @@ export default {
 			.number-string {
 				position: absolute;
 				right: 10px;
-				margin-top: -35px;
+				margin-top: -37px;
 				color: yellow;
 			}
 			&.btn-white {
