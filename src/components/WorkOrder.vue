@@ -505,6 +505,7 @@ export default {
 	}
 	.btn-save {
 		font-size: 1.5rem;
+		color: #686868;
 	}
 	.icon-span { 
 		width: 60px;
@@ -602,6 +603,7 @@ export default {
 				position: absolute;
 				margin-left: 10px;
 				font-size: 1.5rem;
+				color: #686868;
 			}
 		}
 	}
