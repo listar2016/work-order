@@ -81,7 +81,7 @@
 									<input v-model="new_wo.zip_city" class="form-control" />
 								</div>
 							</div>
-							<div class="row mx-1 py-2 bg-white">
+							<div class="row mx-1 py-2 bg-special">
 								<div class="icon-span">
 									<span class="form-control mb-1"><i class="fa fa-phone-square"></i></span>
 									<span class="form-control mb-1"><i class="fa fa-phone-volume"></i></span>
@@ -620,5 +620,8 @@ export default {
 			}
 		}
 		
+	}
+	.bg-special {
+		background-color: #ddd
 	}
 </style>
